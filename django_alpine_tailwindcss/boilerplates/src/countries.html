@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Countries Around Baltic Sea{% endblock %}
+
+{% block content %}
+<main class="px-8 py-14 flex-grow" x-data="{
+  countries: {{ object_list }},
+  order: 1,
+  sort() {
+    this.order *= -1;
+  },
+  get sortedByPopulation() {
+    return this.countries.slice(0).sort(
+      (c1, c2) => (c2.population - c1.population) * this.order
+    );
+  },
+}">
+  <h1 class="text-5xl font-extrabold">
+    Countries Around Baltic Sea
+  </h1>
+  <table class="table-auto divide-y-2 divide-black my-8">
+    <thead class="text-left">
+      <tr>
+        <th class="px-2 py-1">Country</th>
+        <th class="px-2 py-1">Capital City</th>
+        <th class="px-2 py-1"
+          :class="order === 1 ? 'descending' : 'ascending'"
+          @click="sort">
+          Population
+        </th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-blue-400">
+      <template x-for="country in sortedByPopulation">
+        <tr>
+          <td class="px-2 py-1" 
+            x-text="country.title"></td>
+          <td class="px-2 py-1"
+            x-text="country.capital"></td>
+          <td class="px-2 py-1"
+            x-text="country.population"></td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</main>
+{% endblock %}

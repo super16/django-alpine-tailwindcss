@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ascending:after { 
+  content: " ▲";
+  color: rgba(59, 130, 246);
+} 
+.descending:after { 
+  content: " ▼";
+  color: rgba(59, 130, 246);
+}
+.ascending:hover::after { 
+  color: black;
+} 
+.descending:hover::after { 
+  color: black;
+}

@@ -21,6 +21,12 @@ module.exports = {
       inject: false,
       minify: false,
     }),
+     new HtmlWebpackPlugin({
+       filename: '../templates/countries.html',
+       template: 'src/countries.html',
+       inject: false,
+       minify: false,
+     }),
   ],
   module: {
     rules: [
