@@ -1,0 +1,12 @@
+{
+  "name": "boilerplates",
+  "version": "1.0.0",
+  "description": "Boilerplates for Django project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "super16 <https://github.com/super16>",
+  "license": "ISC"
+}
