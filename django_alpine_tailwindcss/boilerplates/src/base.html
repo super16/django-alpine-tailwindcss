@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en_US">
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <script defer src="{% static 'index.js' %}"></script>
+  </head>
+  <body class="flex flex-col h-screen">
+    <header x-data="app">
+      <nav class="flex px-8 py-4 shadow-md bg-blue-400 justify-between">
+        <div class="flex items-center space-x-8">
+          <a href="{% url 'index' %}" class="block self-start">
+            <span class="text-2xl font-bold">App Logo</span></a>
+          <a href="{% url 'countries' %}"
+            class="hidden md:block hover:text-indigo-900">Countries</a>
+        </div>
+        <div class="md:hidden flex flex-col items-end">
+          <button x-on:click="open = !open" class="outline-none menu-button">
+            <svg viewBox="0 0 80 65" width="30" height="30">
+              <rect width="80" height="15"></rect>
+              <rect y="25" width="80" height="15"></rect>
+              <rect y="50" width="80" height="15"></rect>
+            </svg>
+          </button>
+          <div x-show="open" x-transition:enter.duration.750ms
+            x-transition:leave.duration.500ms>
+            <ul class="text-right text-xl py-2 space-y-2">
+              <li>
+                <a href="{% url 'countries' %}">
+                  Countries
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>    
+    </header>
+    {% block content %}{% endblock %}
+    <footer class="bg-gray-700 py-4 px-8">
+      <p class="text-blue-300">Cool App Inc.</p>
+    </footer>
+  </body>
+</html>
