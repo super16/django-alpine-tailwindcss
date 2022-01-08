@@ -6,3 +6,14 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Django
+django_alpine_tailwindcss/*.log
+django_alpine_tailwindcss/django_alpine_tailwindcss/local_settings.py
+django_alpine_tailwindcss/db.sqlite3
+django_alpine_tailwindcss/db.sqlite3-journal
+**/__pycache__/
+django_alpine_tailwindcss/static/*
+django_alpine_tailwindcss/templates/*
+django_alpine_tailwindcss/tables/migrations/*
+!django_alpine_tailwindcss/tables/migrations/__init__.py
