@@ -17,3 +17,6 @@ django_alpine_tailwindcss/static/*
 django_alpine_tailwindcss/templates/*
 django_alpine_tailwindcss/tables/migrations/*
 !django_alpine_tailwindcss/tables/migrations/__init__.py
+
+# npm
+django_alpine_tailwindcss/boilerplates/node_modules
